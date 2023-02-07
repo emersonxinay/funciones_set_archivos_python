@@ -94,3 +94,72 @@ with open('./texto.txt') as file:
     for line in file:
         print(line)
 ```
+# leer un csv
+</a href="https://www.kaggle.com/"> Kaggle.com - Página para buscar datos </a>
+
+```py
+import csv
+
+
+def read_csv(path):
+    with open(path, 'r') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+        header = next(reader)
+        data = []
+        # leer fila a fila
+        for row in reader:
+            # lo va unir con array con tuplas
+            iterable = zip(header, row)
+            # print(list(iterable))
+            # generando diccionario
+            country_dict = {key: value for key, value in iterable}
+            # print(country_dict)
+            data.append(country_dict)
+        return data
+
+
+if __name__ == '__main__':
+    data = read_csv('./population.csv')
+    print(data[0])
+
+```
+
+# hacer graficas 
+<a href="https://matplotlib.org/"> matplotlib - pagina </a>
+
+## instalar  matplotlib en vscode
+```bash
+pip install matplotlib
+```
+### o también la extención 
+<a href=" https://marketplace.visualstudio.com/items?itemName=076923.python-image-preview"> matplotlib en vscode </a>
+
+```py
+import matplotlib.pyplot as plt
+
+# grafica de barras
+
+
+def generate_bar_chart(labels, values):
+
+    fig, ax = plt.subplots()
+    ax.bar(labels, values)
+    plt.show()
+
+# grafica de tipo tortas
+
+
+def generate_pie_chart(labels, values):
+    fig, ax = plt.subplots()
+    ax.pie(values, labels=labels)
+    ax.axis('equal')
+    plt.show()
+
+
+if __name__ == '__main__':
+    labels = ['a', 'b', 'c']
+    values = [10, 20, 800]
+    # generate_bar_chart(labels, values)
+    generate_pie_chart(labels, values)
+```
+

@@ -23,4 +23,3 @@ result = otra_funcion2(3, increment2)
 # y otra forma tambien podría ser
 result = otra_funcion2(3, lambda x: x+1 )
 """
-lambda
